@@ -1,0 +1,225 @@
+/* Ana stil ayarları */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #0056b3;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #007bff;
+    color: #f4f4f4;
+    border-radius: 10px;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+section.meal-section {
+    background-color: #ffffff;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: left;
+}
+
+section.meal-section h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+section.meal-section .meal-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section.meal-section .meal-info p {
+    margin: 0;
+    font-size: 16px;
+}
+
+section.meal-section button.add-meal {
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+section.meal-section button.add-meal:hover {
+    background-color: #ff2d2d;
+}
+
+#water-tracker {
+    background-color: #e3f2fd;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: left;
+}
+
+#water-tracker h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+footer {
+    background-color: #007bff;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #0056b3;
+    flex-wrap: wrap;
+}
+
+footer nav ul li {
+    margin: 10px;
+}
+
+footer nav ul li a img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* Modal Stili */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+}
+
+#food-suggestions {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+#food-suggestions li {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #f4f4f4;
+    margin-bottom: 5px;
+}
+
+#food-suggestions li:hover {
+    background-color: #ddd;
+}
+/* Add your specific styles for search overlay and input here */
+
+#food-search-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+#food-search-input {
+    width: 80%;
+    margin: 20px auto;
+    display: block;
+    padding: 10px;
+    font-size: 18px;
+}
+
+#food-search-results {
+    list-style-type: none;
+    margin: 20px auto;
+    padding: 0;
+    width: 80%;
+    background: white;
+}
+
+#food-search-results li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}

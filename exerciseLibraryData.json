@@ -1,0 +1,23 @@
+[
+    {
+      "name": "Koşu (Yavaş)",
+      "caloriesPer30Min": 240,
+      "intensity": "Hafif"
+    },
+    {
+      "name": "Koşu (Orta Hız)",
+      "caloriesPer30Min": 360,
+      "intensity": "Orta"
+    },
+    {
+      "name": "Koşu (Hızlı)",
+      "caloriesPer30Min": 480,
+      "intensity": "Yoğun"
+    },
+    {
+      "name": "Bisiklet (Yavaş)",
+      "caloriesPer30Min": 200,
+      "intensity": "Hafif"
+    }
+  ]
+  

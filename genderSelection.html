@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinsiyet Seçimi</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- Varsayılan stil dosyanız -->
+</head>
+<body>
+    <header>
+        <h1>Cinsiyet Seçimi</h1>
+    </header>
+
+    <main>
+        <!-- Cinsiyet Seçimi Ekranı -->
+        <button id="male-button">Erkek</button>
+        <button id="female-button">Kadın</button>
+    </main>
+
+    <!-- Cinsiyet Seçimi için JavaScript dosyasını ekleyin -->
+    <script>
+        // Erkek butonuna tıklanıldığında
+        document.getElementById('male-button').addEventListener('click', function() {
+            localStorage.setItem('gender', 'male'); // Erkek olarak cinsiyeti kaydet
+            window.location.href = 'measurements.html'; // Ölçüm sayfasına yönlendir
+        });
+
+        // Kadın butonuna tıklanıldığında
+        document.getElementById('female-button').addEventListener('click', function() {
+            localStorage.setItem('gender', 'female'); // Kadın olarak cinsiyeti kaydet
+            window.location.href = 'measurements.html'; // Ölçüm sayfasına yönlendir
+        });
+    </script>
+</body>
+</html>

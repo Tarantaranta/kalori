@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İdeal Kilo Testi</title>
+</head>
+<body>
+    <h1>İdeal Kilo Testi</h1>
+
+    <!-- Boy girişi -->
+    <label for="height">Boy (cm):</label>
+    <input type="number" id="height" placeholder="Örn: 170" required>
+    
+    <button id="test-button">İdeal Kiloyu Hesapla</button>
+    
+    <div id="ideal-weight-result"></div>
+
+    <script>
+        // İdeal kilo aralığını hesaplar
+        function calculateIdealWeightRange(height) {
+            const heightInMeters = height / 100; // Boyu metreye çevir
+            const minBMI = 18.5;
+            const maxBMI = 24.9;
+            const minWeight = (minBMI * heightInMeters * heightInMeters).toFixed(1);
+            const maxWeight = (maxBMI * heightInMeters * heightInMeters).toFixed(1);
+            return { minWeight, maxWeight };
+        }
+
+        // Buton tıklandığında ideal kilo aralığını hesaplayıp ekrana yazdır
+        document.getElementById('test-button').addEventListener('click', function() {
+            const height = parseFloat(document.getElementById('height').value);
+
+            // Boşluk kontrolü
+            if (isNaN(height)) {
+                alert('Lütfen boyunuzu girin.');
+                return;
+            }
+
+            const idealWeightRange = calculateIdealWeightRange(height);
+
+            // Sonucu ekrana yazdırma
+            document.getElementById('ideal-weight-result').innerHTML = `
+                <p>İdeal Kilo Aralığınız: ${idealWeightRange.minWeight} kg - ${idealWeightRange.maxWeight} kg</p>
+            `;
+        });
+    </script>
+</body>
+</html>

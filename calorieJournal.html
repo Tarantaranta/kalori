@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalori Günlüğü</title>
+    <link rel="stylesheet" href="css/calorieJournal.css">
+</head>
+<body>
+    <h1>Kalori Günlüğü</h1>
+    
+    <div class="section">
+        <h2>Yiyecek Ekle</h2>
+        <input type="text" id="food-name" placeholder="Yiyecek adı">
+        <input type="number" id="food-calories" placeholder="Kalori miktarı">
+        <button id="add-food">Ekle</button>
+    </div>
+
+    <div class="section">
+        <h2>Egzersiz Ekle</h2>
+        <input type="text" id="exercise-name" placeholder="Egzersiz adı">
+        <input type="number" id="exercise-calories" placeholder="Yakılan kalori">
+        <button id="add-exercise">Ekle</button>
+    </div>
+
+    <div class="section">
+        <h2>Günlük Kalori Durumu</h2>
+        <p>Günlük Hedef: <span id="daily-goal">2000</span> kcal</p>
+        <p>Alınan Kalori: <span id="calories-in">0</span> kcal</p>
+        <p>Yakılan Kalori: <span id="calories-out">0</span> kcal</p>
+        <p>Net Kalori: <span id="net-calories">0</span> kcal</p>
+    </div>
+
+    <script src="js/calorieJournal.js"></script>
+</body>
+</html>

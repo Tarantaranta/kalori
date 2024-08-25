@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ölçümler</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Ölçülerinizi Girin</h1>
+    </header>
+
+    <main>
+        <label for="weight">Kilo (kg):</label>
+        <input type="number" id="weight" placeholder="Örn: 70" required>
+
+        <label for="height">Boy (cm):</label>
+        <input type="number" id="height" placeholder="Örn: 170" required>
+
+        <label for="age">Yaş:</label>
+        <input type="number" id="age" placeholder="Örn: 30" required>
+
+        <h2>Aktivite Seviyesi</h2>
+        <label><input type="radio" name="activity" value="sedentary" checked> Hareketsiz</label>
+        <label><input type="radio" name="activity" value="lightlyActive"> Hafif Aktif</label>
+        <label><input type="radio" name="activity" value="moderatelyActive"> Orta Aktif</label>
+        <label><input type="radio" name="activity" value="veryActive"> Çok Aktif</label>
+        <label><input type="radio" name="activity" value="superActive"> Aşırı Aktif</label>
+
+        <button id="calculate-button">Hesapla ve Kaydet</button>
+
+        <div id="results"></div>
+    </main>
+
+    <script>
+        // BMI Hesaplama Fonksiyonu
+        function calculateBMI(weight, height) {
+            const heightInMeters = height / 100;  // Boyu metreye çevir
+            return (weight / (heightInMeters * heightInMeters)).toFixed(2);
+        }
+
+        // İdeal Kilo Hesaplama Fonksiyonu
+        function calculateIdealWeightRange(height) {
+            const heightInMeters = height / 100;
+            const minBMI = 18.5;
+            const maxBMI = 24.9;
+            const minWeight = (minBMI * heightInMeters * heightInMeters).toFixed(1);
+            const maxWeight = (maxBMI * heightInMeters * heightInMeters).toFixed(1);
+            return { minWeight, maxWeight };
+        }
+
+        // Günlük Kalori İhtiyacı Hesaplama Fonksiyonu
+        function calculateCalories(gender, weight, height, age, activityLevel) {
+            let bmr;
+
+            // BMR Hesaplama (Cinsiyete göre farklı formüller)
+            if (gender === 'male') {
+                bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age);
+            } else {
+                bmr = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
+            }
+
+            const activityMultipliers = {
+                'sedentary': 1.2,
+                'lightlyActive': 1.375,
+                'moderatelyActive': 1.55,
+                'veryActive': 1.725,
+                'superActive': 1.9
+            };
+
+            return (bmr * activityMultipliers[activityLevel]).toFixed(0);
+        }
+
+        // Hesapla butonuna tıklandığında çalışacak fonksiyon
+        document.getElementById('calculate-button').addEventListener('click', function() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const age = parseInt(document.getElementById('age').value);
+            const activityLevel = document.querySelector('input[name="activity"]:checked').value;
+
+            // Bilgilerin eksiksiz girilip girilmediğini kontrol et
+            if (isNaN(weight) || isNaN(height) || isNaN(age)) {
+                alert('Lütfen tüm bilgileri eksiksiz girin.');
+                return;
+            }
+
+            const gender = localStorage.getItem('gender');  // Cinsiyeti al
+            const bmi = calculateBMI(weight, height);  // BMI hesapla
+            const idealWeightRange = calculateIdealWeightRange(height);  // İdeal kilo aralığını hesapla
+            const dailyCalories = calculateCalories(gender, weight, height, age, activityLevel);  // Günlük kalori ihtiyacını hesapla
+
+            // Bilgileri localStorage'a kaydet
+            localStorage.setItem('weight', weight);
+            localStorage.setItem('height', height);
+            localStorage.setItem('age', age);
+            localStorage.setItem('activityLevel', activityLevel);
+
+            // Sonuçları ekranda göster ve Ana Sayfa butonu oluştur
+            document.getElementById('results').innerHTML = `
+                <h2>Sonuçlar</h2>
+                <p>BMI: ${bmi}</p>
+                <p>Günlük Kalori İhtiyacınız: ${dailyCalories} kcal</p>
+                <p>İdeal Kilo Aralığınız: ${idealWeightRange.minWeight} kg - ${idealWeightRange.maxWeight} kg</p>
+                <button id="go-to-main">Ana Sayfaya Git</button>
+            `;
+
+            // Ana Sayfaya Git butonu işlevi
+            document.getElementById('go-to-main').addEventListener('click', function() {
+                window.location.href = 'index.html';  // Ana sayfaya yönlendir
+            });
+        });
+    </script>
+</body>
+</html>

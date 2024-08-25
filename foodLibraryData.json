@@ -1,0 +1,30 @@
+[
+  {
+      "name": "Elma",
+      "calories": 100,
+      "protein": 0.3,
+      "carbohydrates": 25,
+      "fat": 0.2,
+      "vitamins": ["A", "C"],
+      "minerals": ["Potasyum"],
+      "chineseMedicine": {
+          "organs": ["Akciğer", "Dalak"],
+          "meridians": ["Akciğer Meridyeni", "Dalak Meridyeni"],
+          "yinYang": "Yin"
+      }
+  },
+  {
+      "name": "Ekmek",
+      "calories": 150,
+      "protein": 5,
+      "carbohydrates": 28,
+      "fat": 1.2,
+      "vitamins": ["B1", "B3"],
+      "minerals": ["Demir", "Magnezyum"],
+      "chineseMedicine": {
+          "organs": ["Mide", "Dalak"],
+          "meridians": ["Mide Meridyeni", "Dalak Meridyeni"],
+          "yinYang": "Yang"
+      }
+  }
+]
